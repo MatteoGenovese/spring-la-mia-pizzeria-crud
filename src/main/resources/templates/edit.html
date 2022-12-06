@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Update pizza:</h1>
+
+	<form 
+		method="POST"
+		action="/pizza/edit"
+		th:object="${pizza}"
+		>
+		
+		<input type="text" name="name" th:field="*{id}" style="display:none;">
+
+	
+		<label>name</label>
+		<input type="text" name="name" th:field="*{name}">
+		<br>
+		
+		<label>description</label>
+		<input type="text" name="description" th:field="*{description}">
+		<br>
+		
+		<label>price</label>
+		<input type="number" name="price" th:field="*{price}">
+		<br>
+		
+		<input type="submit" value="Update">
+	
+	</form>
+
+</body>
+</html>

@@ -12,7 +12,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "pizza")
+@Table
 public class Pizza {
 	
 	@Id
@@ -36,11 +36,8 @@ public class Pizza {
 	private int price;
 
 	public Pizza() { }
-	public Pizza(
-			@NotNull(message = "Pizza name must not be null") @Size(min = 3, max = 32, message = "Pizza name must be min 3 charachters") String name,
-			@NotNull @NotEmpty(message = "description must contain something") String description,
-			@NotNull @Min(0) int price) {
-		super();
+	public Pizza(String name, String description, int price) {
+
 		setName(name);
 		setDescription(description) ;
 		setPrice(price);

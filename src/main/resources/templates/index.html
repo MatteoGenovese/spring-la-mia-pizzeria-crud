@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body >
+
+	<h1>Pizze</h1>
+	
+	<ul>
+		<li
+			th:each ="pizza : ${pizzaList}"
+			th:object="${pizza}"
+			>
+			<a th:href="@{ /pizza/{id} (id=*{id})}">
+				[[*{name}]]
+			</a>
+		</li>
+	</ul>
+	
+	
+	
+	<div th:if ="${pizzaList.size == 0}">
+		The list is empty
+	</div>
+	
+	<a href="/pizza/create"> Create new pizza for the menu</a>
+
+</body>
+</html>

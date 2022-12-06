@@ -33,6 +33,18 @@
 	</form>
 	
 	<a href="/pizza">Home</a>
+				<br>		
+			<br>
+	<div th:if="${errors}">
+		ERROR: 
+		<ul>
+			<li	th:each="error: ${errors}"
+				th:object="${error}">
+	
+							[[*{defaultMessage}]]
+			</li>
+		</ul>
+	</div>
 
 </body>
 </html>

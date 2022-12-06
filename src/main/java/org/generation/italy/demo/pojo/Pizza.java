@@ -27,12 +27,12 @@ public class Pizza {
 	
 	
 	@NotNull
-	@NotEmpty(message = "description must contain something")
+	@NotEmpty(message = "Pizza description must contain something")
 	@Column(length = 512)
 	private String description;
 	
-
-	@Min(value=0)
+	@NotNull
+	@Min(value=1, message = "Pizza price must be greater than or equal to 1")
 	private int price;
 
 	public Pizza() { }

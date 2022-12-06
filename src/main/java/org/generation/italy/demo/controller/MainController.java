@@ -54,8 +54,10 @@ public class MainController {
 		Pizza pizza = new Pizza();
 		
 		model.addAttribute("pizza", pizza);
+		model.addAttribute("type", "create");
+		model.addAttribute("h1text", "Create a new pizza for the list:");
 		
-		return "create";
+		return "form";
 	}
 	
 	@PostMapping("/pizza/create")
@@ -77,7 +79,11 @@ public class MainController {
 		
 		model.addAttribute("pizza", pizza);
 		
-		return "edit";
+		model.addAttribute("type", "edit");
+		model.addAttribute("h1text", "Update pizza:");
+		
+		
+		return "form";
 	}
 	
 	@PostMapping("/pizza/edit")

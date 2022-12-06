@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body 	th:object="${pizza}"		>
 
-	<h1>Update pizza:</h1>
+	<h1>[[${h1text}]]</h1>
 
 	<form 
 		method="POST"
-		action="/pizza/edit"
-		th:object="${pizza}"
+		th:action="@{/pizza/{type}  (type=${type})}"
 		>
 		
 		<input type="text" name="name" th:field="*{id}" style="display:none;">
@@ -29,7 +28,7 @@
 		<input type="number" name="price" th:field="*{price}">
 		<br>
 		
-		<input type="submit" value="Update">
+		<input type="submit" th:value="${type}">
 	
 	</form>
 

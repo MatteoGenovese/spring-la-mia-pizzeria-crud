@@ -1,11 +1,10 @@
 package org.generation.italy.demo.controller;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 import java.util.Optional;
 
-import org.generation.italy.demo.pojo.Pizza;
-import org.generation.italy.demo.service.Pizzaservice;
+import org.generation.italy.demo.pojo.Drink;
+import org.generation.italy.demo.service.Drinkservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,89 +21,15 @@ import jakarta.validation.Valid;
 public class MainController {
 	
 	@Autowired
-	private Pizzaservice pizzaService;
+	private Drinkservice drinkService;
 	
 	@GetMapping
-	public String getPizzaList(Model model) {
+	public String home() {
 		
-		List<Pizza> pizzaList = pizzaService.findAll();
-		model.addAttribute("pizzaList", pizzaList);
-		
-		return "index";
-	}
-	
-	@GetMapping("/pizza/{id}")
-	public String getPizzaById(@PathVariable("id") int id, Model model)
-	{
-		Optional<Pizza> optPizza = pizzaService.getPizzaById(id);
-		
-		Pizza pizza =optPizza.get();
-		
-		model.addAttribute("pizza", pizza);
-		
-		return "show";
+		return "home/index";
 	}
 	
 	
-	@GetMapping("/pizza/create")
-	public String createPizza( Model model)
-	{
-
-		
-		Pizza pizza = new Pizza();
-		
-		model.addAttribute("pizza", pizza);
-		model.addAttribute("type", "create");
-		model.addAttribute("h1text", "Create a new pizza for the list:");
-		
-		return "form";
-	}
-	
-	@PostMapping("/pizza/create")
-	public String storePizza(@Valid @ModelAttribute("pizza") Pizza pizza)
-	{
-		pizzaService.save(pizza);
-		
-		return "redirect:/";
-	}
-	
-	@GetMapping("/pizza/edit/{id}")
-	public String editPizza(@PathVariable("id") int id, Model model)
-	{
-
-		
-		Optional<Pizza> optPizza = pizzaService.getPizzaById(id);
-		
-		Pizza pizza =optPizza.get();
-		
-		model.addAttribute("pizza", pizza);
-		
-		model.addAttribute("type", "edit");
-		model.addAttribute("h1text", "Update pizza:");
-		
-		
-		return "form";
-	}
-	
-	@PostMapping("/pizza/edit")
-	public String updatePizza(@Valid @ModelAttribute("pizza") Pizza pizza)
-	{
-		pizzaService.save(pizza);
-		
-		return "redirect:/";
-	}
-	
-	@GetMapping("/pizza/delete/{id}")
-	public String deleteBook(@PathVariable("id") int id) {
-		
-		Optional<Pizza> optPizza = pizzaService.getPizzaById(id);
-		
-		Pizza pizza =optPizza.get();
-		
-		pizzaService.delete(id);
-		
-		return "redirect:/";
-	}
 	
 
 }

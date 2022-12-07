@@ -32,5 +32,11 @@ public class Pizzaservice {
 	{
 		pizzaRepository.deleteById(id);
 	}
+	
+	public List<Pizza> findByNameOrDescriptionContaining(String s)
+	{
+		System.err.println(pizzaRepository.findByNameContainingOrDescriptionContaining(s,s));
+		return pizzaRepository.findByNameContainingOrDescriptionContaining(s,s);
+	}
 
 }

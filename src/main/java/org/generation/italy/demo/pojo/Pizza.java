@@ -78,7 +78,7 @@ public class Pizza {
 	@Override
 	public String toString() {
 
-		return "id - "+getId()+
+		return "\nid - "+getId()+
 				"\nname - "+ getName()+
 				"\ndescription - "+ getDescription()+
 				"\nprice - "+ getPrice();

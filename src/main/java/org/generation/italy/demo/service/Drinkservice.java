@@ -32,5 +32,15 @@ public class Drinkservice {
 	{
 		drinkRepository.deleteById(id);
 	}
+	
+	public List<Drink> findByNameOrDescriptionContaining(String s)
+	{
+		System.err.println(drinkRepository.findByNameContainingOrDescriptionContaining(s,s));
+		return drinkRepository.findByNameContainingOrDescriptionContaining(s,s);
+	}
+	
+
+	
+	
 
 }

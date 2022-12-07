@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.validation.Valid;
@@ -118,13 +119,24 @@ public class DrinkController {
 	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") int id) {
 		
-		Optional<Drink> optDrink = drinkService.getDrinkById(id);
-		
-		Drink drink =optDrink.get();
-		
 		drinkService.delete(id);
 		
 		return "redirect:/drinks";
+	}
+	
+	@GetMapping("/search")
+	public String searchByName(Model model, 
+			@RequestParam(name = "q", required = false) String query) {
+		
+
+		List<Drink> drinkList = query == null 
+							? drinkService.findAll()
+							: drinkService.findByNameOrDescriptionContaining(query); 
+		
+		model.addAttribute("drinkList", drinkList);
+		model.addAttribute("query", query);
+		
+		return "drink/search";
 	}
 	
 

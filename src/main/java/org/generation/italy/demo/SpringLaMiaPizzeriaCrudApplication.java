@@ -28,10 +28,10 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 		
 
 		Pizza p1 = new Pizza("Margherita", "Pomodoro e mozzarella", 7);
-		Pizza p2 = new Pizza("Marco", "Pomodoro, burrata, pesto", 7);
-		Pizza p3 = new Pizza("Prosciutto", "Pomodoro, prosciutto e mozzarella", 7);
+		Pizza p2 = new Pizza("Marco", "Pomodoro, burrata, pesto", 8);
+		Pizza p3 = new Pizza("Prosciutto", "Pomodoro, prosciutto e mozzarella", 9);
 		Pizza p4 = new Pizza("Salame", "Pomodoro, salame e mozzarella", 7);
-		Pizza p5 = new Pizza("Diavola", "Pomodoro, salame piccante e mozzarella", 7);
+		Pizza p5 = new Pizza("Diavola", "Pomodoro, salame piccante e mozzarella", 19);
 
 		pizzaService.save(p1);
 		pizzaService.save(p2);
@@ -39,11 +39,11 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 		pizzaService.save(p4);
 		pizzaService.save(p5);
 		
-		Drink d1 = new Drink("Moscow Mule", "Vodka, Lime, Ginger, Ice", 7);
-		Drink d2 = new Drink("Hugo", "prosecco, elderflower syrup, seltz and mint leaves", 7);
-		Drink d3 = new Drink("Spritz", "vino bianco frizzante (solitamente prosecco), un bitter come Aperol, Campari", 7);
+		Drink d1 = new Drink("Moscow Mule", "Vodka, Lime, Ginger, Ice", 11);
+		Drink d2 = new Drink("Hugo", "prosecco, elderflower syrup, seltz and mint leaves", 12);
+		Drink d3 = new Drink("Spritz", "vino bianco frizzante (solitamente prosecco), un bitter come Aperol, Campari", 15);
 		Drink d4 = new Drink("Gin Tonic", "Gin, acqua tonica", 7);
-		Drink d5 = new Drink("Gin Lemon", "Gin Mare, lemon", 7);
+		Drink d5 = new Drink("Gin Lemon", "Gin Mare, lemon", 13);
 
 		drinkService.save(d1);
 		drinkService.save(d2);
